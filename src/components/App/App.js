@@ -1,22 +1,28 @@
 import React from 'react'
 import styled from 'styled-components'
 
-import Header from '../layout/HeaderLayout'
-import Navigation from '../layout/NavigationLayout'
-import Body from '../layout/BodyLayout'
+import BaseComponent from '../layout/BaseComponent'
+import colors from '../../styles/colors'
 
+const PINK = colors.pink
+const ORANGE = colors.orange
+const GRAY = colors.gray
 const HEADER_HEIGHT = '150px'
 const NAVIGATION_WIDTH = '25%'
 const BODY_WIDTH = '75%'
 
 export default () => (
   <div>
-    <Header headerPosition={styles.header}>Header stuff here</Header>
+    <BaseComponent className='header' backgroundColor={PINK} style={styles.headerPosition}>
+      Header stuff here
+    </BaseComponent>
     <Wrapper>
-      <Navigation navigationPosition={styles.navigation}>Navigation stuff here</Navigation>
-      <Body bodyPosition={styles.body}>
+      <BaseComponent className='navigation' backgroundColor={ORANGE} style={styles.navigationPosition}>
+        Navigation stuff here
+      </BaseComponent>
+      <BaseComponent className='body' backgroundColor={GRAY} style={styles.bodyPosition}>
         This is the Body
-      </Body>
+      </BaseComponent>
     </Wrapper>
   </div>
 )
@@ -26,17 +32,17 @@ const Wrapper = styled.div`
 `
 
 const styles = {
-  header: {
+  headerPosition: {
     height: `${HEADER_HEIGHT}`,
     width: `100%`,
     marginBottom: `.5em`
   },
-  navigation: {
+  navigationPosition: {
     height: `calc(100vh - ${HEADER_HEIGHT})`,
     width: `${NAVIGATION_WIDTH}`,
     marginRight: `.5em`
   },
-  body: {
+  bodyPosition: {
     height: `calc(100vh - ${HEADER_HEIGHT})`,
     width: `${BODY_WIDTH}`
   }
