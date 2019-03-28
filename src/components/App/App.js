@@ -34,7 +34,6 @@ const Wrapper = styled.div`
 const styles = {
   headerPosition: {
     height: `${HEADER_HEIGHT}`,
-    width: `100%`,
     marginBottom: `.5em`
   },
   navigationPosition: {
