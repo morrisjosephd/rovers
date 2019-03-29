@@ -2,12 +2,15 @@ import React from 'react'
 import { shallow } from 'enzyme'
 
 import App from './App'
+import Order from '../order/Order'
+import data from '../../fakeData'
+import fakeData from '../../fakeData';
 
 describe('App', () => {
   let wrapper
 
   beforeEach(() => {
-    wrapper = shallow(<App />)
+    wrapper = shallow(<App data={data}/>)
   })
 
   it('renders the App compoent', () => {
@@ -23,6 +26,17 @@ describe('App', () => {
   })
 
   it('renders the body', () => {
-    expect(wrapper.find('.body').text()).toContain('This is the Body')
+    expect(wrapper.find('.body')).toBeTruthy()
+  })
+
+  it('renders orders in the body', () => {
+    expect(wrapper.find('.body').children().length).toEqual(fakeData.length)
+    assertType(wrapper, fakeData.length)
   })
 })
+
+const assertType = (wrapper, orders) => {
+  for (let i = 0; i < orders; i++) {
+    expect(wrapper.find('.body').childAt(i).type()).toEqual(Order)
+  }
+}

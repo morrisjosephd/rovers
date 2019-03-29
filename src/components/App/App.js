@@ -2,7 +2,7 @@ import React from 'react'
 import styled from 'styled-components'
 
 import BaseComponent from '../layout/BaseComponent'
-import Location from '../location/Location'
+import Order from '../order/Order'
 import colors from '../../styles/colors'
 import data from '../../fakeData'
 
@@ -23,7 +23,7 @@ export default () => (
         Navigation stuff here
       </BaseComponent>
       <BaseComponent className='body' backgroundColor={GRAY} style={styles.bodyPosition}>
-        This is the Body
+        {generateOrders(data)}
       </BaseComponent>
     </Wrapper>
   </div>
@@ -47,4 +47,10 @@ const styles = {
     height: `calc(100vh - ${HEADER_HEIGHT})`,
     width: `${BODY_WIDTH}`
   }
+}
+
+const generateKey = (id, index) => `${id}-${index}`
+
+const generateOrders= (data) => {
+  return data.map((order, index) => <Order key={generateKey(order.id, index)} order={order} />)
 }
