@@ -23,6 +23,7 @@ export default () => (
         Navigation stuff here
       </BaseComponent>
       <BaseComponent className='body' backgroundColor={GRAY} style={styles.bodyPosition}>
+        <Header>Pending Orders</Header>
         {generateOrders(data)}
       </BaseComponent>
     </Wrapper>
@@ -31,6 +32,10 @@ export default () => (
 
 const Wrapper = styled.div`
   display: flex;
+`
+
+const Header = styled.div`
+  margin-bottom: 8px;
 `
 
 const styles = {
@@ -51,6 +56,6 @@ const styles = {
 
 const generateKey = (id, index) => `${id}-${index}`
 
-const generateOrders= (data) => {
+const generateOrders = (data) => {
   return data.map((order, index) => <Order key={generateKey(order.id, index)} order={order} />)
 }
