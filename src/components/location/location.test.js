@@ -2,16 +2,12 @@ import React from 'react'
 import { shallow } from 'enzyme'
 
 import Location from './Location'
+import data from '../../fakeData'
 
 describe('Location', () => {
   let wrapper
 
-  const fakeData = {
-      name: 'Scooby Doo',
-      address: '123 Mystery Machine Way',
-      city: 'Springfield',
-      state: 'MA'
-  }
+  const fakeData = data[0].origin
 
   const expectedType = 'Origin'
 

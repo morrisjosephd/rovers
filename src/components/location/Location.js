@@ -4,6 +4,7 @@ export default ({ location, type }) => {
     if (!location || !type) {
         return null
     }
+    
     return (
     <div>
         {type}
