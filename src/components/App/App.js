@@ -2,7 +2,9 @@ import React from 'react'
 import styled from 'styled-components'
 
 import BaseComponent from '../layout/BaseComponent'
+import Location from '../location/Location'
 import colors from '../../styles/colors'
+import data from '../../fakeData'
 
 const PINK = colors.pink
 const ORANGE = colors.orange

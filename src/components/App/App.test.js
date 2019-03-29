@@ -23,6 +23,6 @@ describe('App', () => {
   })
 
   it('renders the body', () => {
-    expect(wrapper.find('.body').text()).toEqual('This is the Body')
+    expect(wrapper.find('.body').text()).toContain('This is the Body')
   })
 })

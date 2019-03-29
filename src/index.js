@@ -4,7 +4,7 @@ import 'normalize.css'
 import WebFont from 'webfontloader'
 
 import './index.css'
-import App from './components/App/App'
+import App from './components/app/App'
 
 WebFont.load({
   google: {
@@ -12,4 +12,4 @@ WebFont.load({
   }
 })
 
-ReactDOM.render(<App message={'Hello, World!'} />, document.getElementById('root'))
+ReactDOM.render(<App />, document.getElementById('root'))
