@@ -8,7 +8,7 @@ describe('Delivered button', () => {
   const expectedId = 1
 
   it('invokes the injected callback when the button is clicked', () => {
-    const wrapper = shallow(<Button callback={spy} id={expectedId}/>)
+    const wrapper = shallow(<Button onClick={spy} id={expectedId}/>)
     expect(spy).toHaveBeenCalledTimes(0);
     
     wrapper.find('.delivered-button').simulate('click')

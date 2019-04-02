@@ -23,5 +23,5 @@ const OrderDetail = styled.div`
 const LocationWrapper = styled.div`
     padding: 8px;
     margin: 8px;
-    width: 250px;
+    width: 200px;
 `
