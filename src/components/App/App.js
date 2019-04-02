@@ -32,6 +32,7 @@ export default () => (
 
 const Wrapper = styled.div`
   display: flex;
+  height: calc(100vh - ${ HEADER_HEIGHT } - .5em - 1em);
 `
 
 const Header = styled.div`
@@ -44,13 +45,11 @@ const styles = {
     marginBottom: `.5em`
   },
   navigationPosition: {
-    height: `calc(100vh - ${HEADER_HEIGHT})`,
     width: `${NAVIGATION_WIDTH}`,
     marginRight: `.5em`,
     borderRadius: `0 3px 0 0`
   },
   bodyPosition: {
-    height: `calc(100vh - ${HEADER_HEIGHT})`,
     width: `${BODY_WIDTH}`,
     borderRadius: `3px 0 0 0`
   }
