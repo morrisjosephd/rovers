@@ -2,9 +2,9 @@ import React from 'react'
 import styled from 'styled-components'
 
 import BaseComponent from '../layout/BaseComponent'
-import Order from '../order/Order'
+import { FirebaseContext } from '../Firebase'
+import Orders from '../order/Orders'
 import colors from '../../styles/colors'
-import data from '../../fakeData'
 
 const PINK = colors.pink
 const ORANGE = colors.orange
@@ -23,8 +23,11 @@ export default () => (
         Navigation stuff here
       </BaseComponent>
       <BaseComponent className='body' backgroundColor={GRAY} style={styles.bodyPosition}>
-        <Header>Pending Orders</Header>
-        {generateOrders(data)}
+        <FirebaseContext.Consumer>
+          {firebase => (
+            <Orders firebase={firebase} />
+          )}
+        </FirebaseContext.Consumer>
       </BaseComponent>
     </Wrapper>
   </div>
@@ -32,11 +35,7 @@ export default () => (
 
 const Wrapper = styled.div`
   display: flex;
-  height: calc(100vh - ${ HEADER_HEIGHT } - .5em - 1em);
-`
-
-const Header = styled.div`
-  margin-bottom: 8px;
+  height: calc(100vh - ${HEADER_HEIGHT} - .5em - 1em);
 `
 
 const styles = {
@@ -53,10 +52,4 @@ const styles = {
     width: `${BODY_WIDTH}`,
     borderRadius: `3px 0 0 0`
   }
-}
-
-const generateKey = (id, index) => `${id}-${index}`
-
-const generateOrders = (data) => {
-  return data.map((order, index) => <Order key={generateKey(order.id, index)} order={order} />)
 }

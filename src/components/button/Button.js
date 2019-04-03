@@ -3,11 +3,9 @@ import styled from 'styled-components'
 
 import colors from '../../styles/colors'
 
-export default ({ id, onClick }) => {
-  return (
-    <DeliveredButton className='delivered-button' data-id={id} onClick={onClick}>Delivered</DeliveredButton>
-  )
-}
+export default ({ id, onClick }) => (
+    <DeliveredButton onClick={() => onClick(id)}>Delivered</DeliveredButton>
+)
 
 const DeliveredButton = styled.button`
   width: 100px;
